@@ -1,0 +1,33 @@
+<div class="panel">
+  <h2 class="section-title">Experience</h2>
+  <p class="section-subtitle">
+    A timeline of hands-on work across Flutter, Angular, and ASP.NET Core.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline__rail"></div>
+
+    <article
+      class="timeline__item"
+      *ngFor="let item of experience; let i = index; trackBy: trackByCompany"
+    >
+      <div class="timeline__marker">
+        <span class="timeline__dot"></span>
+        <span class="timeline__year">{{ item.period }}</span>
+      </div>
+
+      <div class="timeline__card">
+        <header class="timeline__header">
+          <h3 class="timeline__role">{{ item.role }}</h3>
+          <p class="timeline__company">{{ item.company }}</p>
+        </header>
+
+        <ul class="timeline__bullets">
+          <li *ngFor="let line of item.bullets; trackBy: trackByBullet">
+            {{ line }}
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="panel">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">
+    A selection of recent work in healthcare, commerce, networking, and media.
+  </p>
+
+  <div class="projects-grid">
+    <article class="project-card" *ngFor="let project of projects; trackBy: trackByProject">
+      <div class="project-card__media">
+        <div class="project-card__overlay"></div>
+      </div>
+
+      <div class="project-card__body">
+        <h3 class="project-card__title">{{ project.title }}</h3>
+        <p class="project-card__description">
+          {{ project.description }}
+        </p>
+
+        <div class="project-card__tags">
+          <span class="project-tag" *ngFor="let tech of project.techStack; trackBy: trackByTech">
+            {{ tech }}
+          </span>
+        </div>
+
+        <div class="project-card__links">
+          <a *ngIf="project.githubUrl" class="project-link project-link--ghost" [href]="project.githubUrl"
+            target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a *ngIf="project.demoUrl" class="project-link" [href]="project.demoUrl" target="_blank" rel="noreferrer">
+            Live Demo
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

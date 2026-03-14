@@ -1,0 +1,75 @@
+<div class="panel">
+  <h2 class="section-title">Contact</h2>
+  <p class="section-subtitle">
+    Ready to collaborate on your next mobile or web project.
+  </p>
+
+  <div class="contact-layout">
+    <form class="contact-form" [formGroup]="form" (submit)="submit($event)">
+      <div class="contact-form__field">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" name="user_name" placeholder="Your name"
+          autocomplete="name" />
+        @if (form.get('name')?.invalid && form.get('name')?.touched) {
+        <span class="contact-form__error">Name must be at least 2 characters.</span>
+        }
+      </div>
+
+      <div class="contact-form__field">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" name="user_email" placeholder="you@example.com"
+          autocomplete="email" />
+        @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <span class="contact-form__error">Please provide a valid email address.</span>
+        }
+      </div>
+
+      <div class="contact-form__field">
+        <label for="message">Project details</label>
+        <textarea id="message" rows="4" formControlName="message" name="message"
+          placeholder="Tell me briefly about your idea, timeline, and stack."></textarea>
+        @if (form.get('message')?.invalid && form.get('message')?.touched) {
+        <span class="contact-form__error">Message must be at least 10 characters long.</span>
+        }
+      </div>
+
+      <button class="contact-form__submit" type="submit" [disabled]="form.invalid || isSubmitting()">
+        {{ isSubmitting() ? 'Sending...' : 'Send Message' }}
+      </button>
+
+      @if (successMessage()) {
+      <p class="contact-form__status contact-form__status--success">
+        {{ successMessage() }}
+      </p>
+      }
+
+      @if (errorMessage()) {
+      <p class="contact-form__status contact-form__status--error">
+        {{ errorMessage() }}
+      </p>
+      }
+
+
+    </form>
+
+    <div class="contact-meta">
+      <h3>Direct contact</h3>
+      <ul class="contact-meta__list">
+        <li>
+          <span class="contact-meta__label">Email</span>
+          <a href="mailto:aashiqroshan@gmail.com">aashiqroshan@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact-meta__label">Phone</span>
+          <a href="tel:+917736391176">+91-7736391176</a>
+        </li>
+        <li>
+          <span class="contact-meta__label">LinkedIn</span>
+          <a href="https://linkedin.com/in/aashiq-roshan-vs" target="_blank" rel="noreferrer">
+            https://linkedin.com/in/aashiq-roshan-vs
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

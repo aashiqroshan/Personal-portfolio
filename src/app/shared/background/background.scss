@@ -1,0 +1,13 @@
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, #1f2933 0, transparent 55%),
+    radial-gradient(circle at bottom right, #111827 0, #020617 55%);
+}
+

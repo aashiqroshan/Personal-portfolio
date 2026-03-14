@@ -1,0 +1,20 @@
+<div class="panel">
+  <h2 class="section-title">Skills</h2>
+  <p class="section-subtitle">
+    A stack focused on scalable mobile and web delivery.
+  </p>
+
+  <div class="skills-grid">
+    <div class="skill-card" *ngFor="let category of skillCategories">
+      <h3 class="skill-card__title">{{ category.name }}</h3>
+      <div class="skill-card__chips">
+        <span
+          class="skill-chip"
+          *ngFor="let skill of category.skills; trackBy: trackBySkill"
+        >
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

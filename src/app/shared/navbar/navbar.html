@@ -1,0 +1,54 @@
+<header class="navbar glass-panel" [class.navbar--mobile-open]="mobileOpen()">
+  <div class="navbar__container">
+    <a class="navbar__brand" (click)="scrollToSection('hero')">
+      <span class="navbar__initials">AR</span>
+      <div class="navbar__text">
+        <span class="navbar__name">Aashiq Roshan</span>
+        <span class="navbar__role">Flutter • Angular • ASP.NET Core</span>
+      </div>
+    </a>
+
+    <button class="navbar__hamburger" type="button" aria-label="Toggle navigation" (click)="toggleMobile()">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navbar__nav" aria-label="Primary navigation">
+      <button class="navbar__link" [class.navbar__link--active]="activeSection() === 'about'" type="button"
+        (click)="scrollToSection('about')">
+        About
+      </button>
+      <button class="navbar__link" [class.navbar__link--active]="activeSection() === 'skills'" type="button"
+        (click)="scrollToSection('skills')">
+        Skills
+      </button>
+      <button class="navbar__link" [class.navbar__link--active]="activeSection() === 'experience'" type="button"
+        (click)="scrollToSection('experience')">
+        Experience
+      </button>
+      <button class="navbar__link" [class.navbar__link--active]="activeSection() === 'projects'" type="button"
+        (click)="scrollToSection('projects')">
+        Projects
+      </button>
+      <button class="navbar__link" [class.navbar__link--active]="activeSection() === 'contact'" type="button"
+        (click)="scrollToSection('contact')">
+        Contact
+      </button>
+    </nav>
+  </div>
+
+  <nav class="navbar__drawer" *ngIf="mobileOpen()" aria-label="Mobile navigation">
+    <button type="button" [class.navbar__drawer-link--active]="activeSection() === 'about'"
+      (click)="scrollToSection('about')">About</button>
+    <button type="button" [class.navbar__drawer-link--active]="activeSection() === 'skills'"
+      (click)="scrollToSection('skills')">Skills</button>
+    <button type="button" [class.navbar__drawer-link--active]="activeSection() === 'experience'"
+      (click)="scrollToSection('experience')">Experience</button>
+    <button type="button" [class.navbar__drawer-link--active]="activeSection() === 'projects'"
+      (click)="scrollToSection('projects')">Projects</button>
+    <button type="button" [class.navbar__drawer-link--active]="activeSection() === 'contact'"
+      (click)="scrollToSection('contact')">
+      Contact
+    </button>
+  </nav>
+</header>
